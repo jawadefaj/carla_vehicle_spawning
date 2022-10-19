@@ -1,25 +1,26 @@
-# import random
-# import carla
+import random
+import carla
 
 
-# #  defining host and port
-# host = '127.0.0.1'
-# port = 2000
+#  defining host and port
+host = '127.0.0.1'
+port = 2000
 
-# #  connecting to server
-# client = carla.Client(host, port)
-# client.set_timeout(5.0)
-# print(f"Client carla version: {client.get_client_version()}")
-# print(f"Server carla version: {client.get_server_version()}")
+#  connecting to server
+client = carla.Client(host, port)
+client.set_timeout(5.0)
+print(f"Client carla version: {client.get_client_version()}")
+print(f"Server carla version: {client.get_server_version()}")
 
-# #  creating the world
+#  creating the world
 # map_name = 'Town02'
 # world = client.load_world(map_name)
-# print(f"World map: {world.get_map().name}")
+world = client.get_world()
+print(f"World map: {world.get_map().name}")
 
-# # configure spactator camera for better view
-# spectator = world.get_spectator()
-# spectator.set_transform(carla.Transform(carla.Location(x=150, y=200, z=250), carla.Rotation(pitch=-90)))
+# configure spactator camera for better view
+spectator = world.get_spectator()
+spectator.set_transform(carla.Transform(carla.Location(x=0, y=0, z=250), carla.Rotation(pitch=-90)))
 
 # #  selecting spawn point
 # map = world.get_map()
